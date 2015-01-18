@@ -29,4 +29,9 @@ describe('ellipsis', function() {
       var result = $('#test6').html();
       expect('<p>今日は<strong>金曜日</strong></p>...').toBe(result);
     });
+    it('ellipsis size is from data-ellipsis-length', function() {
+      $('#test7').ellipsis();
+      var result = $('#test7').html();
+      expect('今...').toBe(result);
+    });
 });

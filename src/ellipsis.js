@@ -58,12 +58,13 @@
           var i = ite.next();
           var ellipsised = "";
           var textSize = 0;
+          var size = self.attr('data-ellipsis-length') || settings.size
           while (i) {
             ellipsised += i.value;
             if (!i.tag) {
               textSize++;
             }
-            if (textSize >= settings.size) {
+            if (textSize >= size) {
               ellipsised += ite.popAllCloseTags();
               break;
             }
