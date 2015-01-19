@@ -54,7 +54,7 @@
       var self = $(this);
       var init = function() {
         self.each(function() {
-          var ite = new StringIterator($(this).html());
+          var ite = new StringIterator($(this).html().trim());
           var i = ite.next();
           var ellipsised = "";
           var textSize = 0;

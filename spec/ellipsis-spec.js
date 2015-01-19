@@ -34,4 +34,9 @@ describe('ellipsis', function() {
       var result = $('#test7').html();
       expect('今...').toBe(result);
     });
+    it('ellipsis contains a tag', function() {
+      $('#test8').ellipsis();
+      var result = $('#test8').html();
+      expect('<a href="#">ぁふのやず</a>...').toBe(result);
+    });
 });
