@@ -72,4 +72,10 @@ describe('ellipsis', function() {
       var result = target.html();
       expect('<p>今日</p>').toBe(result);
     });
+
+    it('ellipsis contains species', function() {
+      $('#test8').ellipsis();
+      var result = $('#test8').html();
+      expect('<a href="#">ぁふのやず</a>...').toBe(result);
+    });
 });
