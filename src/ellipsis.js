@@ -1,5 +1,4 @@
-(function($) {
-  var StringIterator = function(html) {
+(function($) { var StringIterator = function(html) {
     this.html = html;
     this.length = html.length;
     this.index = 0;
@@ -41,6 +40,23 @@
     }
   };
 
+  /**
+   * return next charactor not tags.
+   *
+   * if find no charactor, return null.
+   * this fuction caused side effort.
+   **/
+  StringIterator.prototype.nextCharactor = function() {
+    var next = this.next();
+    while (next) {
+      if (!next.tag) {
+        return next;
+      }
+      next = this.next();
+    }
+    return null;
+  };
+
   StringIterator.prototype.popAllCloseTags = function() {
     return this.tags.join('');
   };
@@ -70,7 +86,11 @@
             }
             i = ite.next();
           }
-          $(this).html(ellipsised + settings.omission);
+          if (ite.nextCharactor()) {
+              $(this).html(ellipsised + settings.omission);
+          } else {
+              $(this).html(ellipsised);
+          }
         });
       };
       init();

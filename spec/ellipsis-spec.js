@@ -48,4 +48,28 @@ describe('ellipsis', function() {
       var result = target.html();
       expect('今...').toBe(result);
     });
+
+    it('ellipsis just size text, not append ...', function() {
+      var target = $('#text');
+      target.html('今日');
+      target.ellipsis({ size: 2 });
+      var result = target.html();
+      expect('今日').toBe(result);
+    });
+
+    it('ellipsis under size text, not append ...', function() {
+      var target = $('#text');
+      target.html('今日');
+      target.ellipsis({ size: 3 });
+      var result = target.html();
+      expect('今日').toBe(result);
+    });
+
+    it('ellipsis just size text contains tag, not append ...', function() {
+      var target = $('#text');
+      target.html('<p>今日</p>');
+      target.ellipsis({ size: 2 });
+      var result = target.html();
+      expect('<p>今日</p>').toBe(result);
+    });
 });
